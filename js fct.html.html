@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Practice Functions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .section {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .function-demo {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .function-demo h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .input-group {
+            margin: 10px 0;
+        }
+
+        input, button {
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 14px;
+        }
+
+        input {
+            width: 300px;
+            margin-right: 10px;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #5568d3;
+        }
+
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            background: #e8f5e9;
+            border-radius: 5px;
+            color: #2e7d32;
+            font-weight: bold;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .console-output {
+            background: #1e1e1e;
+            color: #00ff00;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin-top: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .console-output pre {
+            margin: 0;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 JavaScript Practice Functions</h1>
+
+        <!-- String Functions -->
+        <div class="section">
+            <h2>📝 String Manipulation Functions</h2>
+            
+            <div class="function-demo">
+                <h3>Reverse a String</h3>
+                <div class="input-group">
+                    <input type="text" id="reverseInput" placeholder="Enter text to reverse">
+                    <button onclick="testReverse()">Reverse</button>
+                </div>
+                <div id="reverseResult" class="result"></div>
+            </div>
+
+            <div class="function-demo">
+                <h3>Count Characters</h3>
+                <div class="input-group">
+                    <input type="text" id="countInput" placeholder="Enter text to count">
+                    <button onclick="testCount()">Count</button>
+                </div>
+                <div id="countResult" class="result"></div>
+            </div>
+
+            <div class="function-demo">
+                <h3>Capitalize Words</h3>
+                <div class="input-group">
+                    <input type="text" id="capitalizeInput" placeholder="Enter sentence to capitalize">
+                    <button onclick="testCapitalize()">Capitalize</button>
+                </div>
+                <div id="capitalizeResult" class="result"></div>
+            </div>
+        </div>
+
+        <!-- Array Functions -->
+        <div class="section">
+            <h2>📊 Array Functions</h2>
+            
+            <div class="function-demo">
+                <h3>Find Max & Min</h3>
+                <div class="input-group">
+                    <input type="text" id="arrayInput" placeholder="Enter numbers separated by commas (e.g., 5,2,9,1,7)">
+                    <button onclick="testMaxMin()">Find Max/Min</button>
+                </div>
+                <div id="maxMinResult" class="result"></div>
+            </div>
+
+            <div class="function-demo">
+                <h3>Sum of Array</h3>
+                <div class="input-group">
+                    <input type="text" id="sumInput" placeholder="Enter numbers separated by commas">
+                    <button onclick="testSum()">Calculate Sum</button>
+                </div>
+                <div id="sumResult" class="result"></div>
+            </div>
+        </div>
+
+        <!-- Mathematical Functions -->
+        <div class="section">
+            <h2>🔢 Mathematical Functions</h2>
+            
+            <div class="function-demo">
+                <h3>Factorial</h3>
+                <div class="input-group">
+                    <input type="number" id="factorialInput" placeholder="Enter a number">
+                    <button onclick="testFactorial()">Calculate Factorial</button>
+                </div>
+                <div id="factorialResult" class="result"></div>
+            </div>
+
+            <div class="function-demo">
+                <h3>Prime Number Check</h3>
+                <div class="input-group">
+                    <input type="number" id="primeInput" placeholder="Enter a number">
+                    <button onclick="testPrime()">Check Prime</button>
+                </div>
+                <div id="primeResult" class="result"></div>
+            </div>
+
+            <div class="function-demo">
+                <h3>Fibonacci Sequence</h3>
+                <div class="input-group">
+                    <input type="number" id="fibInput" placeholder="Enter number of terms">
+                    <button onclick="testFibonacci()">Generate Sequence</button>
+                </div>
+                <div id="fibResult" class="result"></div>
+            </div>
+        </div>
+
+        <!-- Console Output -->
+        <div class="section">
+            <h2>💻 Console Output (Auto-run Tests)</h2>
+            <div class="console-output">
+                <pre id="consoleOutput"></pre>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ==================== STRING MANIPULATION FUNCTIONS ====================
+
+        function reverseString(str) {
+            return str.split('').reverse().join('');
+        }
+
+        function countCharacters(str) {
+            return str.length;
+        }
+
+        function capitalizeWords(sentence) {
+            return sentence
+                .split(' ')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+                .join(' ');
+        }
+
+        // ==================== ARRAY FUNCTIONS ====================
+
+        function findMax(arr) {
+            if (arr.length === 0) return null;
+            return Math.max(...arr);
+        }
+
+        function findMin(arr) {
+            if (arr.length === 0) return null;
+            return Math.min(...arr);
+        }
+
+        function sumArray(arr) {
+            return arr.reduce((sum, num) => sum + num, 0);
+        }
+
+        function filterArray(arr, condition) {
+            return arr.filter(condition);
+        }
+
+        // ==================== MATHEMATICAL FUNCTIONS ====================
+
+        function factorial(n) {
+            if (n < 0) return null;
+            if (n === 0 || n === 1) return 1;
+            return n * factorial(n - 1);
+        }
+
+        function isPrime(num) {
+            if (num <= 1) return false;
+            if (num === 2) return true;
+            if (num % 2 === 0) return false;
+            
+            for (let i = 3; i <= Math.sqrt(num); i += 2) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
+
+        function fibonacci(terms) {
+            if (terms <= 0) return [];
+            if (terms === 1) return [0];
+            if (terms === 2) return [0, 1];
+            
+            const sequence = [0, 1];
+            for (let i = 2; i < terms; i++) {
+                sequence.push(sequence[i - 1] + sequence[i - 2]);
+            }
+            return sequence;
+        }
+
+        // ==================== INTERACTIVE TEST FUNCTIONS ====================
+
+        function showResult(elementId, message) {
+            const element = document.getElementById(elementId);
+            element.textContent = message;
+            element.classList.add('show');
+        }
+
+        function testReverse() {
+            const input = document.getElementById('reverseInput').value;
+            const result = reverseString(input);
+            showResult('reverseResult', `Reversed: "${result}"`);
+        }
+
+        function testCount() {
+            const input = document.getElementById('countInput').value;
+            const result = countCharacters(input);
+            showResult('countResult', `Character count: ${result}`);
+        }
+
+        function testCapitalize() {
+            const input = document.getElementById('capitalizeInput').value;
+            const result = capitalizeWords(input);
+            showResult('capitalizeResult', `Capitalized: "${result}"`);
+        }
+
+        function testMaxMin() {
+            const input = document.getElementById('arrayInput').value;
+            const arr = input.split(',').map(num => parseFloat(num.trim()));
+            const max = findMax(arr);
+            const min = findMin(arr);
+            showResult('maxMinResult', `Max: ${max}, Min: ${min}`);
+        }
+
+        function testSum() {
+            const input = document.getElementById('sumInput').value;
+            const arr = input.split(',').map(num => parseFloat(num.trim()));
+            const result = sumArray(arr);
+            showResult('sumResult', `Sum: ${result}`);
+        }
+
+        function testFactorial() {
+            const input = parseInt(document.getElementById('factorialInput').value);
+            const result = factorial(input);
+            showResult('factorialResult', `${input}! = ${result}`);
+        }
+
+        function testPrime() {
+            const input = parseInt(document.getElementById('primeInput').value);
+            const result = isPrime(input);
+            showResult('primeResult', `${input} is ${result ? 'PRIME ✓' : 'NOT PRIME ✗'}`);
+        }
+
+        function testFibonacci() {
+            const input = parseInt(document.getElementById('fibInput').value);
+            const result = fibonacci(input);
+            showResult('fibResult', `Fibonacci: [${result.join(', ')}]`);
+        }
+
+        // ==================== AUTO-RUN TESTS ON PAGE LOAD ====================
+
+        window.onload = function() {
+            let output = '';
+            
+            output += "=== STRING FUNCTIONS ===\n";
+            output += `Reverse 'hello': ${reverseString("hello")}\n`;
+            output += `Count characters in 'JavaScript': ${countCharacters("JavaScript")}\n`;
+            output += `Capitalize 'hello world from javascript': ${capitalizeWords("hello world from javascript")}\n\n`;
+
+            output += "=== ARRAY FUNCTIONS ===\n";
+            const numbers = [5, 2, 9, 1, 7, 6];
+            output += `Array: [${numbers.join(', ')}]\n`;
+            output += `Maximum: ${findMax(numbers)}\n`;
+            output += `Minimum: ${findMin(numbers)}\n`;
+            output += `Sum: ${sumArray(numbers)}\n`;
+            output += `Filter even numbers: [${filterArray(numbers, num => num % 2 === 0).join(', ')}]\n`;
+            output += `Filter numbers > 5: [${filterArray(numbers, num => num > 5).join(', ')}]\n\n`;
+
+            output += "=== MATHEMATICAL FUNCTIONS ===\n";
+            output += `Factorial of 5: ${factorial(5)}\n`;
+            output += `Factorial of 0: ${factorial(0)}\n`;
+            output += `Is 7 prime? ${isPrime(7)}\n`;
+            output += `Is 10 prime? ${isPrime(10)}\n`;
+            output += `Is 17 prime? ${isPrime(17)}\n`;
+            output += `Fibonacci sequence (10 terms): [${fibonacci(10).join(', ')}]\n`;
+            output += `Fibonacci sequence (5 terms): [${fibonacci(5).join(', ')}]\n`;
+
+            document.getElementById('consoleOutput').textContent = output;
+        };
+    </script>
+</body>
+</html>
